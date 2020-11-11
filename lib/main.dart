@@ -46,21 +46,31 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [
-    Transaction(
-        id: 't1',
-        title: 'Novo tenis de Corrida',
-        value: 310.6,
-        date: DateTime.now().subtract(Duration(days: 3))),
-    Transaction(
-        id: 't3',
-        title: 'Conta Antiga',
-        value: 36,
-        date: DateTime.now().subtract(Duration(days: 33))),
-    Transaction(
-        id: 't2',
-        title: 'Nova Camisetarrida',
-        value: 103,
-        date: DateTime.now().subtract(Duration(days: 4))),
+    //   Transaction(
+    //       id: 't1',
+    //       title: 'Novo tenis de Corrida',
+    //       value: 310.6,
+    //       date: DateTime.now().subtract(Duration(days: 3))),
+    //   Transaction(
+    //       id: 't3',
+    //       title: 'Conta Antiga',
+    //       value: 36,
+    //       date: DateTime.now().subtract(Duration(days: 33))),
+    //   Transaction(
+    //       id: 't2',
+    //       title: 'Nova Camisetarrida',
+    //       value: 103,
+    //       date: DateTime.now().subtract(Duration(days: 4))),
+    //   Transaction(
+    //       id: 't4',
+    //       title: 'Galocha',
+    //       value: 103,
+    //       date: DateTime.now().subtract(Duration(days: 6))),
+    //   Transaction(
+    //       id: 't5',
+    //       title: 'Chapeu',
+    //       value: 103,
+    //       date: DateTime.now().subtract(Duration(days: 5))),
   ];
 
   List<Transaction> get _recentTransactions {
@@ -71,18 +81,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _openTransactionFormModal(BuildContext context) {
     showModalBottomSheet(
-        context: context,
-        builder: (_) {
-          return TransactionForm(_addTransaction);
-        });
+      context: context,
+      builder: (_) {
+        return TransactionForm(_addTransaction);
+      },
+    );
   }
 
-  _addTransaction(String title, double value) {
+  _addTransaction(String title, double value, DateTime date) {
     final newTransaction = Transaction(
         id: Random().nextDouble().toString(),
         title: title,
         value: value,
-        date: DateTime.now());
+        date: date);
 
     setState(() {
       _transactions.add(newTransaction);
