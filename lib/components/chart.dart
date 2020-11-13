@@ -23,13 +23,13 @@ class Chart extends StatelessWidget {
         }
       }
 
-      //  print(DateFormat.E().format(weekDay)[0]);
+      print(DateFormat.E().format(weekDay)[0]);
       //   print(totalSum);
       return {
-        'day': DateFormat.E().format(weekDay)[0],
+        'day': DateFormat.E('pt_BR').format(weekDay)[0].toUpperCase(),
         'value': totalSum,
       };
-    }).reversed.toList();
+    }); //.reversed.toList();
   }
 
   double get _weekTotalValue {
